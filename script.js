@@ -9,7 +9,7 @@ function gitCommit(message, commitDate) {
     fs.writeFileSync(FILE_PATH, message);
     execSync(`git add ${FILE_PATH}`, { stdio: 'pipe' });
 
-    // Format ISO string date: YYYY-MM-DDT12:00:00
+
     const yearStr = commitDate.getFullYear();
     const monthStr = String(commitDate.getMonth() + 1).padStart(2, '0');
     const dayStr = String(commitDate.getDate()).padStart(2, '0');
