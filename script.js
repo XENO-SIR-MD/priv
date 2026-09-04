@@ -8,6 +8,7 @@ const COMMITS_PER_PIXEL = 5;
 function gitCommit(message, commitDate) {
     fs.writeFileSync(FILE_PATH, message);
     execSync(`git add ${FILE_PATH}`, { stdio: 'pipe' });
+    
 
 
     const yearStr = commitDate.getFullYear();
