@@ -5,24 +5,17 @@ import sys
 import time
 from datetime import datetime, timedelta
 
-# ============================================
-# GitHub Contribution Graph Hack
-#
-# Created by Aura Farmer
-# GitHub: https://github.com/aurafarmerone
-#
-# If you like this project, give it a ⭐
-# ============================================
+
+
 
 PATTERN_FILE = "pattern.json"
 FILE_PATH = "info.txt"
 
-COMMITS_PER_PIXEL = 5   # lighter than darkest green
+COMMITS_PER_PIXEL = 5   
 
 
-# -------------------------------
-# Credit Banner (Start)
-# -------------------------------
+
+
 def show_start_credit():
     print(r"""
           
@@ -30,15 +23,14 @@ def show_start_credit():
 ┃┓┓╋┣┫┓┏┣┓  ┃ ┏┓┏┳┓┏┳┓┓╋  ┃ ┏┓┣┓
 ┗┛┗┗┛┗┗┻┗┛  ┗┛┗┛┛┗┗┛┗┗┗┗  ┗┛┗┻┗┛                       
 
-Created by Aura Farmer
-GitHub: https://github.com/aurafarmerone
+Created by Xeno Exe
+GitHub: https://github.com/XENO-SIR-MD
 ----------------------------------------
 """)
 
 
-# -------------------------------
-# Credit Banner (End)
-# -------------------------------
+
+
 def show_end_credit():
     print(r"""
           
@@ -51,18 +43,16 @@ def show_end_credit():
 ☑️ The Timeline Has Changed.
 ☑️ Success! Pretend This Was Hard.           
 
-----------------------------------------
-⭐ If you like this project, give it a star on GitHub!
-👉 https://github.com/aurafarmerone/github-contribution-graph-hack
 
-Made with ❤️  by Aura Farmer
+
+
+Made with ❤️  by Xeno Exe
 ----------------------------------------
 """)
 
 
-# -------------------------------
-# Git Commit (FIXED)
-# -------------------------------
+
+
 def git_commit(message, commit_date):
     subprocess.run(["git", "add", FILE_PATH], check=True)
 
@@ -76,7 +66,7 @@ def git_commit(message, commit_date):
         [
             "git",
             "commit",
-            "--allow-empty",   # ✅ FIX: allows commit even if no file changes
+            "--allow-empty",  
             "-m",
             message,
             "--date",
@@ -101,7 +91,8 @@ def load_pattern():
 
 def first_sunday(year):
     d = datetime(year, 1, 1)
-    while d.weekday() != 6:  # Sunday
+    while d.weekday() != 6: 
+        
         d += timedelta(days=1)
     return d
 
@@ -113,7 +104,8 @@ def make_commits_from_pattern(year):
     for row_idx, row in enumerate(pattern):
         for col_idx, char in enumerate(row):
             if char == " ":
-                continue  # empty pixel
+                continue  
+                
 
             commit_date = start_date + timedelta(
                 weeks=col_idx,
@@ -133,9 +125,7 @@ def make_commits_from_pattern(year):
     git_push()
 
 
-# -------------------------------
-# Entry Point
-# -------------------------------
+
 if __name__ == "__main__":
     show_start_credit()
 
